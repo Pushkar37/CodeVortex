@@ -1,0 +1,15 @@
+.card{
+   border: 2px solid white;
+   margin: 2rem;
+}
+h4{
+    font-weight: 400;
+}
+.card:hover h2{
+    text-decoration: underline;
+    
+}
+.card:hover{
+    box-shadow: 2px 1px 2px white;
+    transform: scale(1.01);
+}
