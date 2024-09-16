@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<style>
+    *{
+        font-family: "Montserrat", sans-serif;
+    }
+    .container{
+     display: flex;
+     justify-content: center;
+     background-color: blue;
+     margin: 2rem;
+     border-radius: 40px;
+     padding: 1rem;
+     margin-left: 20%;
+     margin-right: 20%;
+    }
+    .applicants{
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        overflow:scroll;
+        height: 400px;
+       
+        }
+        .applicants::-webkit-scrollbar{
+            display: none;
+        }
+        .content{
+            text-align: center;
+           margin: 2rem;
+            background-color: darkkhaki;
+            padding: 2rem;
+            border-radius: 40px;
+        }
+        .card{
+           border: 2px solid black;
+           padding: 1rem;
+           margin: 1rem;
+           transition: all 1s;
+        }
+        .card:hover{
+            box-shadow: 2px 2px 1px black;
+            transform: scale(1.1);
+        }
+        img{
+            height: 100px;
+            width: 100px;
+        }
+        .applicants{
+            border: 2px solid black;
+            padding: 1rem;
+        }
+        .description{
+            overflow-y: scroll;
+        }
+        .description::-webkit-scrollbar{
+            display: none;
+        }
+</style>
+<body>
+    <div class="container">
+        <div class="content">
+            
+            <h2>Job title:&nbsp; <%= jobdetail[0].titile%></h2>
+            <h2>Job Description:&nbsp; </h2>
+            <div class="description">
+
+                <%=jobdetail[0].description%>
+
+            </div>
+         <h2>
+            Salary :  <%= jobdetail[0].salary %>
+         </h2>
+         <h3>last date to apply : <%= jobdetail[0].lastdate %></h3>
+         <h3>Total number of applications: <%= count %></h3>
+         <h4>The applicants are:</h4>
+         <div class="applicants">
+            
+             
+             <% appl.forEach((app)=>{ %>
+                <a style="color:black" href="/home/login/<%=user[0].Email  %>/after/dashboard/list/<%= jobdetail[0]._id %>/<%= app.applicant %>">
+               <div class="card">
+                <img src="/profile.jpg" alt="pic">
+                <p><b>applicant:</b> <br><%= app.applicant %></p>
+               
+               </div></a>
+               <% }) %>
+         </div>
+        </div>
+    </div>
+    
+</body>
+</html>

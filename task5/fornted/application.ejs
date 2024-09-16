@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>applicants</title>
+</head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<style>
+    *{
+        font-family: "Montserrat", sans-serif;
+    }
+    .container{
+       margin-left: 20%;
+       margin-right: 20%;
+       background-color: rgba(0, 0, 255, 0.689);
+        padding: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 40px;
+    }
+    img{
+        height: 200px;
+        width: 200px;
+    }
+    .applicantinfo{
+        padding: 2rem;
+        text-align: center;
+        background-color: rgba(189, 183, 107, 0.862);
+        width: 40%;
+        border-radius: 40px;
+    }
+    button{
+        padding:0.5rem;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="applicantinfo">
+            <img src="/profile.jpg" alt="pic">
+            <H3>NAME:</H3>  <%= applicantdetails[0].Name.toUpperCase()%>&nbsp <%=applicantdetails[0].Surname.toUpperCase()%>
+            <h3>Email:</h3>  <%= applicantdetails[0].Email %>
+            <h3>
+                 Given Reason: 
+            </h3>
+            <div class="reason">
+                <%= applicationdetails[0].reason %>
+            </div>
+            <h3>
+                Experience:
+            </h3>
+            <div class="exp">
+                    <%= applicationdetails[0].exp %>
+            </div>
+            <h3>
+                Links
+            </h3>
+            <a href="<%= applicationdetails[0].link %>"><%= applicationdetails[0].link %></a>
+         <br> <br>
+         <form method="POST" action="/sentmail/<%= applicantdetails[0].Email %>">
+        <button>send mail</button>
+    </form>
+        </div>
+    </div>
+    
+</body>
+</html>

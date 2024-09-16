@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign up</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+ <style>
+    *{
+       font-family: "Montserrat", sans-serif;}
+    .container{
+        text-align: center;
+        background-color:rgba(0, 0, 255, 0.405);
+        height: 90vh;
+        overflow: hidden;
+        margin: 2rem;
+        border-radius: 30px;
+       
+    }
+  .form{
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    width: fit-content;
+    padding: 2rem;
+    border-radius: 20px;
+  }
+  form{
+   line-height: 4;
+    text-align: center;
+  }
+  input{
+    padding: 0.5rem;
+    margin: 1rem;
+    width: 300px;
+    text-align: center;
+    background-color: #D7E6FA;
+  }
+  button{
+   padding: 1rem;
+   width: 100px;
+   background-color:white;
+   font-weight: 800;
+  }
+  input::placeholder{
+    font-weight: 600;
+    color: black;
+    transition: all 0.6s ease-in;
+  
+  }
+  input:focus::placeholder{
+    opacity: 0;
+  }
+ </style>
+</head>
+<body>
+    <div class="container">
+         <h2>SIGN UP </h2>
+         <div style="display:flex; justify-content:center; " >
+
+             <div class="form" >
+                 <form action="/home/register?_method=PUT" method="POST">
+                     
+                     <input type="text" name="name" id="name" placeholder="NAME"> <br>
+                     <input type="text" name="surname" id="surname" placeholder="SURNAME"> <br>
+                     <input type="email" name="email" id="email" placeholder="EMAIL"> <br>
+                     
+                     <input type="password" name="password" id="" placeholder="PASSWORD" > <br>
+                     <input type="password" name="confirmpassword" id="" placeholder="CONFIRM PASSWORD"> <br>
+                     <button type="submit">REGISTER</button>
+                     
+                    </form>
+                </div>
+        </div>
+    </div>
+</body>
+</html>

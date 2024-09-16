@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job description</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        *{
+            font-family: "Montserrat", sans-serif;
+        }
+        .conatiner{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: blue;
+            margin: 2rem;
+            border-radius: 35px;
+            padding: 2rem;
+            margin-left: 25%;
+            margin-right: 25%;
+        }
+        .jobdescription{
+            background-color: darkkhaki;
+            padding: 2rem;
+            border-radius: 35px;
+            
+            
+        }
+        h2{
+            text-align: center;
+            
+        }
+        h1{
+            text-align: center;
+        }
+        h5{
+            text-align: right;
+        }
+        .user{
+            text-align: right;
+        }
+        .salary{
+            text-align: center;
+        }
+        button{
+            padding: 0.6rem;
+        }
+
+        .btn{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="conatiner">
+        <div class="jobdescription">
+            <h1>
+                  Job Title:
+                </h1>
+               <h2>
+                   <%= jobdesc.titile.toUpperCase() %>
+            </h2>
+                
+            <h3>Job description:</h3>
+            <p>
+
+                <%= jobdesc.description %>
+            </p>
+            <h3>
+                Salary:
+            </h3>
+            <p class="salary">
+
+                <%= jobdesc.salary %>
+            </p>
+            <h3>
+                Job posted by:
+
+            </h3>
+            <p class="user">
+               <%= jobdesc.user %> 
+            </p>
+            <p class="btn">
+                <% if (check ) { %>
+                 <button >Already applied</button>
+               
+                <% } else { %>
+                 
+                <a href="/home/login/<%= email %>/list/<%= jobdesc._id %>/apply">
+                 
+                    <button >apply now</button>
+                </a>
+                <% } %>
+            </p>
+            <h4>
+                  Last date to apply:
+                </h4>
+               <h5>
+                   <%= jobdesc.lastdate %>
+
+               </h5>
+        </div>
+    </div>
+</body>
+</html>

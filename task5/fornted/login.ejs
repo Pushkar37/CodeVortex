@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<style>
+    *{
+        font-family: "Montserrat", sans-serif;
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+        background-color:rgba(0, 0, 255, 0.405);
+        margin: 2rem;
+        border-radius: 30px;
+        
+        
+    }
+    
+    form{
+        line-height: 4;
+        text-align: center;
+        background-color:white; ;
+        padding: 3rem;
+        border-radius: 30px;
+    }
+    
+    input{
+        padding: 0.6rem;
+        width: 300px;
+        background-color: #D7E6FA; 
+    }
+    button{
+        padding: 1rem;
+        font-weight: 600;
+    }
+    .color{
+        width: 80vh;
+        background-color: blue;
+    }
+    input::placeholder{
+        transition: all 0.6s;
+    }
+    input:focus::placeholder{
+        opacity: 0;
+    }
+</style>
+</head>
+<body>
+   <div class="container">
+   
+    <div class="color">
+               
+        <div class="form" >
+            <form method="POST" action="/home/login?_method=PUT">
+                <input type="email" name="email" id="email" placeholder="Email"> <br>
+                <input type="password" name="password" id="Password" placeholder="Password"> <br>
+                <button type="submit" id="form">Login in</button> <br>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- <script>
+    document.getElementById("form").addEventListener("click",(e)=>{
+      e.preventDefault();
+    })
+</script> -->
+</body>
+</html>

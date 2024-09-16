@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply now</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<style>
+    *{
+        font-family: "Montserrat", sans-serif;
+    }
+    .conatiner{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 2rem;
+        margin-left: 25%;
+        margin-right: 25%;
+        background-color: antiquewhite;
+        padding: 4rem;
+        border-radius: 30px;
+    }
+    p{
+        font-weight: 500;
+    }
+    textarea{
+        height: 140px;
+        width: 500px;
+        margin: 0;
+        padding: 0;
+
+    }
+    .form{
+        padding: 2rem;
+        background-color: #D7E6FA;
+        border-radius: 30px;
+       
+    }
+    button{
+        padding: 1rem;
+    }
+    input{
+        width: 250px;
+        padding: 0.3rem;
+        opacity: 0.5;
+        border: none;
+    }
+    input:focus{
+        border: none;
+        
+    }
+</style>
+<body>
+    <div class="conatiner">
+        <div class="form">
+            <form action="/home/login/<%= email %>/list/<%= id %>/apply?_method=PUT" method="POST">
+                <p style="font-weight:700">
+                    Applicant Id:
+                </p>
+                <p>
+                    <input type="email" name="eamil" id="email" value="<%= email %>" readonly>
+                </p>
+                    
+              
+                <p>
+
+                    Why should we hire you?
+                </p>
+               
+                <textarea name="whyshould"></textarea>
+               
+                
+                <p>
+
+                    Previous experiences:
+                    </p>
+                
+                <textarea name="previousexperience"> </textarea>
+                <p>
+                    Projects/github link:
+                </p>
+                <textarea name="link" id=""></textarea>
+               <p style="text-align:center">
+                    <button type="submit">Apply</button>
+               </p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
