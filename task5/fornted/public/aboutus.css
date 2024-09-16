@@ -1,0 +1,59 @@
+.aboutpara1{
+    font-size: 40px;
+    padding: 2rem;
+    margin: 2rem;
+    font-weight: 700;
+}
+.aboutpara2{
+    font-size: 25px;
+    padding: 2rem;
+    padding-top: 0;
+    margin: 2rem;
+    font-weight: 500;
+}
+.aboutone{
+   
+    display: flex;
+   justify-content: center;
+}
+.half{
+    width: 50%;
+    background-color: #D7E6FA;
+}
+img{
+    width: 40%;
+}
+.writeabout{
+    
+    margin: 2rem;
+    
+    font-size: 30px;
+    font-weight: 800;
+    transform: rotate(-90deg);
+  
+ 
+}
+.aboutuscontent{
+    width: 50%;
+    background-color: #D7E6FA;
+    padding: 2rem;
+    font-weight: 500;
+    line-height: 1.5;
+}
+.aboutcolor{
+    width: 15%;
+    background-color: blue;
+}
+.abouttwo{
+    display: flex;
+    justify-content: center;
+   padding: 2rem;
+    padding-top: 0;
+}
+.colorblue{
+    background-color: blue;
+    padding: 1rem;
+    /* margin:2rem; */
+    /* height: 200px; */
+    margin-top: 0;
+}

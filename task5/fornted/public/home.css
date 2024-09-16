@@ -1,0 +1,137 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+}
+.conatiner{
+    background-color: antiquewhite;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 30px;
+}
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+   z-index: 2;
+    background-color: blue;
+    border-radius: 25px;
+    
+}
+.nav ul li {
+   list-style: none;
+   display: inline;
+   padding: 2rem;
+}
+a{
+    text-decoration: none;
+    color: antiquewhite;
+}
+.navright{
+    text-align: right;
+}
+.navleft{
+    font-size: 50px;
+    padding: 1rem;
+   
+}
+li{
+    font-weight: 600;
+    color: antiquewhite;
+}
+.belownav{
+    text-align: left;
+    font-size: 55px;
+    padding: 2rem;
+    margin: 2px;
+    height: 60vh;
+    background-color: white;
+   
+}
+.belownav img{
+    position: absolute;
+    right: 10px;
+    top: 400px;
+    
+}
+.cardhead{
+    text-align: center;
+    padding: 2rem;
+    margin: 2rem;
+    
+}
+.card{
+    text-align: center;
+   
+    height: 100px;
+    padding: 2rem;
+    background-color: #D7E6FA;
+    margin: 1rem;
+    width: 300px;
+    transition: all 1s;
+}
+ i{
+ transform: scale(2);
+
+}
+.card p{
+    margin: 1rem;
+    margin-top: 2rem;
+   
+}
+.cards{
+    display: flex;
+    background-color: white;
+    padding: 2rem;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.content{
+    
+    padding: 2rem;
+}
+.limo{
+    background-color: black;
+    border-radius: 20px;
+}
+.card:hover{
+    transform: scale(1.01);
+    cursor: pointer;
+    box-shadow: 1px 1px 2px  black;
+}
+.card:hover p{
+font-weight: 600;
+}
+
+ .navmid li a:hover{
+    font-weight: 650;
+}
+.belownavpara{
+    font-size: 35px;
+    line-height: 2;
+    position: absolute;
+    left: 500px;
+    top: 650px;
+    width: fit-content;
+    font-weight: 700;
+}
+.hidden{
+    transform: translateX(-100%);
+    transition: all 1s;
+}
+.show{
+    transform: translateX(0);
+}
+.belownav>div p:nth-of-type(2){
+  transition-delay: 200ms;
+}
+.belownav>div p:nth-of-type(3){
+  transition-delay: 300ms;
+}
+.belownav>div p:nth-of-type(4){
+  transition-delay: 400ms;
+}
