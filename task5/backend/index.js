@@ -8,7 +8,8 @@ const { error } = require("console");
 const {job}=require("./models/job.js");
 const {application}=require("./models/apply.js");
 const nodemailer=require("nodemailer");
-
+const SMTPConnection = require("nodemailer/lib/smtp-connection");
+const { resolve } = require("path/win32");
 app.use(express.static(path.join(__dirname,"public")));
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
@@ -41,18 +42,13 @@ app.get("/home/signup",(req,res)=>{
    res.render("register.ejs");
 })
 app.put("/home/register",(req,res)=>{
- let {password}=req.body;
- let {confirmpassword}=req.body;
- let {name}=req.body;
- let {surname}=req.body;
- let {email}=req.body;
- userDetail.find({email:email}).then((exists)=>{
-   if(exists){
+ let {password,confirmpassword,name,surname,email}=req.body;
+ 
+ userDetail.find({Email:email}).then((exists)=>{
+   if(exists[0]!=""){
+    console.log(exists)
        res.send("user already exists");
-       setTimeout(() => {
-           res.redirect("./home/signup")
-        
-       }, 2000);
+      
 }
 else{
  if(password==confirmpassword){
@@ -67,9 +63,9 @@ else{
    
 
     user.save()
-    .then((res)=>{
+    .then((rese)=>{
        console.log("User Registered Succesfully");
-       console.log(res);
+       console.log(rese);
        res.redirect("/home/login");
     })
     .catch((err)=>{
@@ -160,10 +156,15 @@ app.get("/home/login/:email/list/:id",async(req,res)=>{
     let {id,email}=req.params
     let jobdesc= await job.findOne({_id:id});
     let checked=await application.find({applicant:email,forjob:id});
-    let check=false;
-    if(checked){
+   let check;
+   console.log(checked)
+    if(checked!=""){
+       
        check=true;
+    }else{
+        check=false
     }
+    console.log(check)
     res.render("specific.ejs",{jobdesc,email,check});
 })
 app.get("/home/login/:email/list/:id/apply",async(req,res)=>{
@@ -225,30 +226,56 @@ app.get("/home/login/:email/after/dashboard/list/:id/:appid",async(req,res)=>{
      
 
 })
-const transporter = nodemailer.createTransport({
-service:"gmail",
-auth:{
-user:"jobboard35@gmail.com",
-pass:"gvmb sngh yoye yxkq"
-}
-});
+
 
 app.post("/sentmail/:appid",async(req,res)=>{
 let {appid}=req.params;
+let id=`${appid}`
+await sendEmail(id);
 
-try{
-    const mailOptions={
-        from:"jobboard35@gmail.com",
-        to:`${appid}`,
-        subject:"You are shortlisted",
-        text:"you are shortlisted for the role you applied "
+
+
+
+
+});
+const transporter = nodemailer.createTransport({
+    service:"gmail",
+    port:587,
+    auth:{
+    user:"job.board35@gmail.com",
+    pass:"gvmb sngh yoye yxkq"
+    },
+    tls:{
+        rejectUnauthorized:false
+    }
+    });
+    async function  sendEmail(id){
+        const transporter2 = nodemailer.createTransport({
+            host:"smtp.gmail.com",
+           service:"gmail",
+           secure:true,
+            port: 465,
+            debug: true,
+            auth: {
+                user:"job.board35@gmail.com",
+             pass:"gvmb sngh yoye yxkq"
+            },
+            tls:{
+                rejectUnauthorized:false
+            }
+          });
+          try{
+            const mailOptions={
+                from:"job.board35@gmail.com",
+                to:id,
+                subject:"You are shortlisted",
+                text:"you are shortlisted for the role you applied "
+                }
+                
+        await transporter2.sendMail(mailOptions)
         }
-        
-await transporter.sendMail( mailOptions)
-}
-catch(err){
-console.log(err);
-}
+        catch(err){
+        console.log(err);
+        }
 
-
-})
+    }
